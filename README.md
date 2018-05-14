@@ -11,7 +11,8 @@ Managing garage
   Lê Hoài Vũ 15521026
   
 # Giới thiệu đề tài:
-    Quản lý garage oto là phần mềm chuyên dùng trong các garage oto. Nhằm giúp quản lý garage giảm bớt khó khăn trong công việc lưu danh sách khách hàng sửa chữa, số lượng phụ tùng ô tô, số ô tô nhập vào garage, ....
+
+Quản lý garage oto là phần mềm chuyên dùng trong các garage oto. Nhằm giúp quản lý garage giảm bớt khó khăn trong công việc lưu danh sách khách hàng sửa chữa, số lượng phụ tùng ô tô, số ô tô nhập vào garage, ....
 
 # Công cụ sử dụng
 
