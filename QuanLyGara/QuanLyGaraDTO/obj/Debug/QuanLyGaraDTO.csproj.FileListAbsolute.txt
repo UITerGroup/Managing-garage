@@ -1,0 +1,5 @@
+E:\study\Code\C#\QuanLyGara\QuanLyGaraDTO\bin\Debug\QuanLyGaraDTO.dll
+E:\study\Code\C#\QuanLyGara\QuanLyGaraDTO\bin\Debug\QuanLyGaraDTO.pdb
+E:\study\Code\C#\QuanLyGara\QuanLyGaraDTO\obj\Debug\QuanLyGaraDTO.csprojResolveAssemblyReference.cache
+E:\study\Code\C#\QuanLyGara\QuanLyGaraDTO\obj\Debug\QuanLyGaraDTO.dll
+E:\study\Code\C#\QuanLyGara\QuanLyGaraDTO\obj\Debug\QuanLyGaraDTO.pdb
