@@ -1,5 +1,5 @@
-﻿--Insert dữ liệu có dấu cần thêm N phía trước chuỗi
---Insert dữ liệu khách hàng
+﻿--Insert dữ liệu khách hàng
+USE QuanLyGara
 INSERT INTO KHACHHANG (TENKH, DIACHI, DIENTHOAI, EMAIL)
 VALUES (N'Nguyễn Văn A', N'123 Lê Đức Thọ', '0902456789', 'nguyenvana@gmail.com')
 
@@ -65,6 +65,7 @@ VALUES (N'Nguyễn Quốc Cường', N'TP Pleiku, Gia Lai', '0123456789', 'ngu
 
 INSERT INTO KHACHHANG (TENKH, DIACHI, DIENTHOAI, EMAIL)
 VALUES (N'Phạm Trần Nhật Minh', N'134 Nam Kỳ Khởi Nghĩa', '0907756777', 'phamtrannhatminh@gmail.com')
+
 --Insert dữ liệu xe
 INSERT INTO dbo.XE (BIENSO, MAKH, HIEUXE ) VALUES ('59G1 9999', 1, 'Toyota')
 
@@ -110,13 +111,7 @@ INSERT INTO dbo.XE (BIENSO, MAKH, HIEUXE ) VALUES ('56L1 4568', 21, 'Mercedes Be
 
 INSERT INTO dbo.XE (BIENSO, MAKH, HIEUXE ) VALUES ('59L1 9485', 22, 'Mercedes Benz')
 
-
-
-
-
-
 --Insert dữ liệu phụ tùng 
---Thêm cột số lượng
 INSERT INTO PHUTUNG (MAPHUTUNG, TENPHUTUNG, DONGIA, SLTON) VALUES ('PT001', N'Lọc gió', 1200000, 100)
 INSERT INTO PHUTUNG (MAPHUTUNG, TENPHUTUNG, DONGIA, SLTON) VALUES ('PT002', N'Lọc nhiên liệu', 171000, 50)
 INSERT INTO PHUTUNG (MAPHUTUNG, TENPHUTUNG, DONGIA, SLTON) VALUES ('PT003', N'Phuộc trước toyota innova', 1200000, 75)
