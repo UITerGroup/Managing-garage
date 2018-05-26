@@ -21,15 +21,14 @@ namespace QuanLyGaraGUI
             InitializeComponent();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void CongViecGUI_Load(object sender, EventArgs e)
         {
-            cbbTimKiemCongViec.SelectedIndex = 0; //Xóa bỏ Item trống đầu tiên trong cbb
-            //dtgvDanhSachCongViec.DataSource = cvBUS.xemToanBoCongViec(); // Danh sách khách hàng
+            cbbTimKiemCongViec.SelectedIndex = 0; 
+            dtgvDanhSachCongViec.DataSource = cvBUS.xemToanBoCongViec();
+
+            btnThemCongViec.Enabled = true;
+            btnXoaCongViec.Enabled = false;
+            btnCapNhatCongViec.Enabled = false;
         }
 
         private void lamMoiNoiDungCongViec()
@@ -38,11 +37,20 @@ namespace QuanLyGaraGUI
             txtMaCongViecCapNhat.Text = "";
             txtNoiDungCongViec.Text = "";
             nudTienCong.Value = 0;
+
+            btnThemCongViec.Enabled = true;
+            btnXoaCongViec.Enabled = false;
+            btnCapNhatCongViec.Enabled = false;
         }
 
         private void btnLamMoiCongViec_Click(object sender, EventArgs e)
         {
             lamMoiNoiDungCongViec();
+        }
+
+        private void btnXemDanhSachCongViec_Click(object sender, EventArgs e)
+        {
+            dtgvDanhSachCongViec.DataSource = cvBUS.xemToanBoCongViec();
         }
 
         private void btnThemCongViec_Click(object sender, EventArgs e)
@@ -60,6 +68,7 @@ namespace QuanLyGaraGUI
                     {
                         MessageBox.Show("Thêm thành công");
                         dtgvDanhSachCongViec.DataSource = cvBUS.xemToanBoCongViec(); // refresh datagridview
+                        lamMoiNoiDungCongViec();
                     }
                     else
                     {
@@ -71,44 +80,6 @@ namespace QuanLyGaraGUI
             {
                 MessageBox.Show("Chưa có đủ thông tin để thêm !");
             }
-        }
-
-        private void ckCapNhatMaCongViec_CheckedChanged(object sender, EventArgs e)
-        {
-            if (ckCapNhatMaCongViec.Checked)
-            {
-                txtMaCongViec.Enabled = false;
-                lbMaCongViecCapNhat.Enabled = true;
-                txtMaCongViecCapNhat.Enabled = true;
-                txtNoiDungCongViec.Enabled = false;
-                nudTienCong.Enabled = false;
-                btnThemCongViec.Enabled = false;
-                btnXoaCongViec.Enabled = false;
-            }
-            else
-            {
-                txtMaCongViec.Enabled = true;
-                lbMaCongViecCapNhat.Enabled = false;
-                txtMaCongViecCapNhat.Enabled = false;
-                txtNoiDungCongViec.Enabled = true;
-                nudTienCong.Enabled = true;
-                btnThemCongViec.Enabled = true;
-                btnXoaCongViec.Enabled = true;
-                txtMaCongViecCapNhat.Text = txtMaCongViec.Text;
-            }
-        }
-
-        private void nudTienCong_Validating(object sender, CancelEventArgs e)
-        {
-            if (nudTienCong.Text == "")
-            {
-                nudTienCong.Value = 0;
-            }
-        }
-
-        private void btnXemDanhSachCongViec_Click(object sender, EventArgs e)
-        {
-            dtgvDanhSachCongViec.DataSource = cvBUS.xemToanBoCongViec();
         }
 
         private void btnXoaCongViec_Click(object sender, EventArgs e)
@@ -134,17 +105,6 @@ namespace QuanLyGaraGUI
             else
             {
                 MessageBox.Show("Chưa có đủ thông tin để xóa");
-            }
-        }
-
-        private void dtgvDanhSachCongViec_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
-            {
-                txtMaCongViec.Text = dtgvDanhSachCongViec.Rows[e.RowIndex].Cells[0].Value.ToString();
-                txtMaCongViecCapNhat.Text = txtMaCongViec.Text;
-                txtNoiDungCongViec.Text = dtgvDanhSachCongViec.Rows[e.RowIndex].Cells[1].Value.ToString();
-                nudTienCong.Value = Convert.ToInt32(dtgvDanhSachCongViec.Rows[e.RowIndex].Cells[2].Value.ToString());
             }
         }
 
@@ -214,7 +174,7 @@ namespace QuanLyGaraGUI
                     if (dtgvDanhSachCongViec.Rows.Count <= 0)
                     {
                         dtgvDanhSachCongViec.DataSource = null;
-                        MessageBox.Show("Không tìm được nội dung phù hợp");                    
+                        MessageBox.Show("Không tìm được nội dung phù hợp");
                     }
                 }
 
@@ -225,7 +185,7 @@ namespace QuanLyGaraGUI
                     {
                         dtgvDanhSachCongViec.DataSource = null;
                         MessageBox.Show("Không tìm được nội dung phù hợp");
-                        
+
                     }
                 }
             }
@@ -233,6 +193,72 @@ namespace QuanLyGaraGUI
             {
                 MessageBox.Show("Hãy nhập thông tin tìm kiếm");
             }
+        }
+
+        private void dtgvDanhSachCongViec_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                txtMaCongViec.Text = dtgvDanhSachCongViec.Rows[e.RowIndex].Cells[0].Value.ToString();
+                txtMaCongViecCapNhat.Text = txtMaCongViec.Text;
+                txtNoiDungCongViec.Text = dtgvDanhSachCongViec.Rows[e.RowIndex].Cells[1].Value.ToString();
+                nudTienCong.Value = Convert.ToInt32(dtgvDanhSachCongViec.Rows[e.RowIndex].Cells[2].Value.ToString());
+                if (ckCapNhatMaCongViec.Checked)
+                {
+                    btnThemCongViec.Enabled = false;
+                    btnXoaCongViec.Enabled = false;
+                    btnCapNhatCongViec.Enabled = true;
+                }
+                else
+                {
+                    btnThemCongViec.Enabled = false;
+                    btnXoaCongViec.Enabled = true;
+                    btnCapNhatCongViec.Enabled = true;
+                }
+            }
+        }
+
+        private void ckCapNhatMaCongViec_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ckCapNhatMaCongViec.Checked)
+            {
+                txtMaCongViec.Enabled = false;
+                lbMaCongViecCapNhat.Enabled = true;
+                txtMaCongViecCapNhat.Enabled = true;
+                txtNoiDungCongViec.Enabled = false;
+                nudTienCong.Enabled = false;
+
+                btnThemCongViec.Enabled = false;
+                btnXoaCongViec.Enabled = false;
+                btnCapNhatCongViec.Enabled = true;
+            }
+            else
+            {
+                txtMaCongViec.Enabled = true;
+                lbMaCongViecCapNhat.Enabled = false;
+                txtMaCongViecCapNhat.Enabled = false;
+                txtNoiDungCongViec.Enabled = true;
+                nudTienCong.Enabled = true;
+
+                btnThemCongViec.Enabled = false;
+                btnXoaCongViec.Enabled = true;
+                btnCapNhatCongViec.Enabled = true;
+
+                txtMaCongViecCapNhat.Text = txtMaCongViec.Text;
+            }
+        }
+
+        private void nudTienCong_Validating(object sender, CancelEventArgs e)
+        {
+            if (nudTienCong.Text == "")
+            {
+                nudTienCong.Value = 0;
+            }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

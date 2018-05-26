@@ -141,7 +141,7 @@
             // 
             this.txtDienThoai.Location = new System.Drawing.Point(97, 121);
             this.txtDienThoai.Name = "txtDienThoai";
-            this.txtDienThoai.Size = new System.Drawing.Size(165, 20);
+            this.txtDienThoai.Size = new System.Drawing.Size(100, 20);
             this.txtDienThoai.TabIndex = 17;
             // 
             // lbDienThoai
@@ -218,9 +218,10 @@
             // dtgvDanhSachKhachHang
             // 
             this.dtgvDanhSachKhachHang.AllowUserToAddRows = false;
+            this.dtgvDanhSachKhachHang.AllowUserToDeleteRows = false;
             this.dtgvDanhSachKhachHang.AllowUserToResizeColumns = false;
             this.dtgvDanhSachKhachHang.AllowUserToResizeRows = false;
-            this.dtgvDanhSachKhachHang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgvDanhSachKhachHang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dtgvDanhSachKhachHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvDanhSachKhachHang.Location = new System.Drawing.Point(6, 19);
             this.dtgvDanhSachKhachHang.Name = "dtgvDanhSachKhachHang";

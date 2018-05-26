@@ -20,28 +20,37 @@ namespace QuanLyGaraGUI
         {
             InitializeComponent();
         }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
+    
         private void PhuTungGUI_Load(object sender, EventArgs e)
         {
-            cbbTimKiemPhuTung.SelectedIndex = 0; //Xóa bỏ Item trống đầu tiên trong cbb
-            //dtgvDanhSachPhuTung.DataSource = ptBUS.xemToanBoPhuTung(); // Danh sách khách hàng
+            cbbTimKiemPhuTung.SelectedIndex = 0; 
+            dtgvDanhSachPhuTung.DataSource = ptBUS.xemToanBoPhuTung(); 
+            btnCapNhatPhuTung.Enabled = false;
+            btnXoaPhuTung.Enabled = false;        
         }
 
-        private void btnXemDanhSachKhachHang_Click(object sender, EventArgs e)
+        private void lamMoiNoiDungPhuTung()
+        {
+            txtMaPhuTung.Text = "";
+            txtMaPhuTungCapNhat.Text = "";
+            txtTenPhuTung.Text = "";
+            nudDonGia.Value = 0;
+            nudSoLuongTonKho.Value = 0;
+            btnThemPhuTung.Enabled = true;
+            btnCapNhatPhuTung.Enabled = false;
+            btnXoaPhuTung.Enabled = false;
+        }
+
+        private void btnLamMoiPhuTung_Click(object sender, EventArgs e)
+        {
+            lamMoiNoiDungPhuTung();        
+        }
+
+        private void btnXemDanhSachPhuTung_Click(object sender, EventArgs e)
         {
             dtgvDanhSachPhuTung.DataSource = ptBUS.xemToanBoPhuTung();
         }
-
+         
         private void btnThemPhuTung_Click(object sender, EventArgs e)
         {
             if (txtMaPhuTung.Text != "" && txtTenPhuTung.Text != "" && nudDonGia.Value > 0 && nudSoLuongTonKho.Value > 0)
@@ -57,6 +66,7 @@ namespace QuanLyGaraGUI
                     {
                         MessageBox.Show("Thêm thành công");
                         dtgvDanhSachPhuTung.DataSource = ptBUS.xemToanBoPhuTung(); // refresh datagridview
+                        lamMoiNoiDungPhuTung();
                     }
                     else
                     {
@@ -70,58 +80,13 @@ namespace QuanLyGaraGUI
             }
         }
 
-        private void btnTimKiemPhuTung_Click(object sender, EventArgs e)
-        {
-            if (txtTimKiemPhuTung.Text != "")
-            {
-                if (cbbTimKiemPhuTung.SelectedItem.Equals("Mã phụ tùng"))
-                {
-                    dtgvDanhSachPhuTung.DataSource = ptBUS.timKiemPhuTungBangID(txtTimKiemPhuTung.Text);
-                    if (dtgvDanhSachPhuTung.Rows.Count <= 0)
-                    {
-                        dtgvDanhSachPhuTung.DataSource = null;
-                        MessageBox.Show("Không tìm được nội dung phù hợp");
-                       
-                    }
-                }
-
-                if (cbbTimKiemPhuTung.SelectedItem.Equals("Tên phụ tùng"))
-                {
-                    dtgvDanhSachPhuTung.DataSource = ptBUS.timKiemPhuTungBangTen(txtTimKiemPhuTung.Text);
-                    if (dtgvDanhSachPhuTung.Rows.Count <= 0)
-                    {
-                        dtgvDanhSachPhuTung.DataSource = null;
-                        MessageBox.Show("Không tìm được nội dung phù hợp");
-                       
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("Hãy nhập thông tin tìm kiếm");
-            }
-        }
-
-        private void dtgvDanhSachPhuTung_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
-            {
-                txtMaPhuTung.Text = dtgvDanhSachPhuTung.Rows[e.RowIndex].Cells[0].Value.ToString();
-                txtMaPhuTungCapNhat.Text = txtMaPhuTung.Text;
-                txtTenPhuTung.Text = dtgvDanhSachPhuTung.Rows[e.RowIndex].Cells[1].Value.ToString();
-                nudDonGia.Value = Convert.ToInt32(dtgvDanhSachPhuTung.Rows[e.RowIndex].Cells[2].Value.ToString()) ;
-                nudSoLuongTonKho.Value = Convert.ToInt32(dtgvDanhSachPhuTung.Rows[e.RowIndex].Cells[3].Value.ToString());
-            }
-        }
-
-        private void btnLamMoiPhuTung_Click(object sender, EventArgs e)
-        {
-            lamMoiNoiDungPhuTung();
-        }
-
         private void btnXoaPhuTung_Click(object sender, EventArgs e)
         {
-            if (txtMaPhuTungCapNhat.Text != "")
+            if (txtMaPhuTung.Text.Equals("-"))
+            {
+                MessageBox.Show("Không được phép xóa nội dung này!");
+            }
+            else if (txtMaPhuTungCapNhat.Text != "")
             {
                 string thongbao = "Bạn có chắc muốn xóa phụ tùng " + txtMaPhuTungCapNhat.Text + " ?";
                 DialogResult dialogResult = MessageBox.Show(thongbao, "Thông báo", MessageBoxButtons.YesNo);
@@ -147,7 +112,11 @@ namespace QuanLyGaraGUI
 
         private void btnCapNhatPhuTung_Click(object sender, EventArgs e)
         {
-            if (ckCapNhatMaPhuTung.Checked)
+            if (txtMaPhuTung.Text.Equals("-"))
+            {
+                MessageBox.Show("Không được phép cập nhật nội dung này!");
+            }
+            else if (ckCapNhatMaPhuTung.Checked)
             {
                 if (txtMaPhuTung.Text != "" && txtMaPhuTungCapNhat.Text != "")
                 {
@@ -192,12 +161,100 @@ namespace QuanLyGaraGUI
                         {
                             MessageBox.Show("Cập nhật thất bại !");
                         }
-                    }                
+                    }
                 }
                 else
                 {
                     MessageBox.Show("Chưa có đủ thông tin cập nhật");
                 }
+            }
+        }
+
+        private void btnTimKiemPhuTung_Click(object sender, EventArgs e)
+        {
+            if (txtTimKiemPhuTung.Text != "")
+            {
+                if (cbbTimKiemPhuTung.SelectedItem.Equals("Mã phụ tùng"))
+                {
+                    dtgvDanhSachPhuTung.DataSource = ptBUS.timKiemPhuTungBangID(txtTimKiemPhuTung.Text);
+                    if (dtgvDanhSachPhuTung.Rows.Count <= 0)
+                    {
+                        dtgvDanhSachPhuTung.DataSource = null;
+                        MessageBox.Show("Không tìm được nội dung phù hợp");
+                       
+                    }
+                }
+
+                if (cbbTimKiemPhuTung.SelectedItem.Equals("Tên phụ tùng"))
+                {
+                    dtgvDanhSachPhuTung.DataSource = ptBUS.timKiemPhuTungBangTen(txtTimKiemPhuTung.Text);
+                    if (dtgvDanhSachPhuTung.Rows.Count <= 0)
+                    {
+                        dtgvDanhSachPhuTung.DataSource = null;
+                        MessageBox.Show("Không tìm được nội dung phù hợp");
+                       
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Hãy nhập thông tin tìm kiếm");
+            }
+        }
+
+        private void dtgvDanhSachPhuTung_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                txtMaPhuTung.Text = dtgvDanhSachPhuTung.Rows[e.RowIndex].Cells[0].Value.ToString();
+                txtMaPhuTungCapNhat.Text = txtMaPhuTung.Text;
+                txtTenPhuTung.Text = dtgvDanhSachPhuTung.Rows[e.RowIndex].Cells[1].Value.ToString();
+                nudDonGia.Value = Convert.ToInt32(dtgvDanhSachPhuTung.Rows[e.RowIndex].Cells[2].Value.ToString());
+                nudSoLuongTonKho.Value = Convert.ToInt32(dtgvDanhSachPhuTung.Rows[e.RowIndex].Cells[3].Value.ToString());
+                if (ckCapNhatMaPhuTung.Checked)
+                {
+                    btnThemPhuTung.Enabled = false;
+                    btnXoaPhuTung.Enabled = false;
+                    btnCapNhatPhuTung.Enabled = true;
+                }
+                else
+                {
+                    btnThemPhuTung.Enabled = false;
+                    btnXoaPhuTung.Enabled = true;
+                    btnCapNhatPhuTung.Enabled = true;
+                }
+            }
+        }
+
+        private void ckCapNhatMaPhuTung_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ckCapNhatMaPhuTung.Checked)
+            {
+                txtMaPhuTung.Enabled = false;
+                lbMaPhuTungCapNhat.Enabled = true;
+                txtMaPhuTungCapNhat.Enabled = true;
+                txtTenPhuTung.Enabled = false;
+                nudDonGia.Enabled = false;
+                nudSoLuongTonKho.Enabled = false;
+                
+                btnThemPhuTung.Enabled = false;
+                btnXoaPhuTung.Enabled = false;
+                btnCapNhatPhuTung.Enabled = true;
+            }
+            else
+            {
+                txtMaPhuTung.Enabled = true;
+                lbMaPhuTungCapNhat.Enabled = false;
+                txtMaPhuTungCapNhat.Enabled = false;
+                txtTenPhuTung.Enabled = true;
+                nudDonGia.Enabled = true;
+                nudSoLuongTonKho.Enabled = true;
+
+                btnThemPhuTung.Enabled = false;
+                btnXoaPhuTung.Enabled = true;
+                btnCapNhatPhuTung.Enabled = true;
+
+                txtMaPhuTungCapNhat.Text = txtMaPhuTung.Text;
             }
         }
 
@@ -217,40 +274,16 @@ namespace QuanLyGaraGUI
             }
         }
 
-        private void lamMoiNoiDungPhuTung()
+        private void textBox4_TextChanged(object sender, EventArgs e)
         {
-            txtMaPhuTung.Text = "";
-            txtMaPhuTungCapNhat.Text = "";
-            txtTenPhuTung.Text = "";
-            nudDonGia.Value = 0;
-            nudSoLuongTonKho.Value = 0;
+
         }
 
-        private void ckCapNhatMaPhuTung_CheckedChanged(object sender, EventArgs e)
+        private void label4_Click(object sender, EventArgs e)
         {
-            if (ckCapNhatMaPhuTung.Checked)
-            {
-                txtMaPhuTung.Enabled = false;
-                lbMaPhuTungCapNhat.Enabled = true;
-                txtMaPhuTungCapNhat.Enabled = true;
-                txtTenPhuTung.Enabled = false;
-                nudDonGia.Enabled = false;
-                nudSoLuongTonKho.Enabled = false;
-                btnXoaPhuTung.Enabled = false;
-                btnThemPhuTung.Enabled = false;
-            }
-            else
-            {
-                txtMaPhuTung.Enabled = true;
-                lbMaPhuTungCapNhat.Enabled = false;
-                txtMaPhuTungCapNhat.Enabled = false;
-                txtTenPhuTung.Enabled = true;
-                nudDonGia.Enabled = true;
-                nudSoLuongTonKho.Enabled = true;
-                btnXoaPhuTung.Enabled = true;
-                btnThemPhuTung.Enabled = true;
-                txtMaPhuTungCapNhat.Text = txtMaPhuTung.Text;
-            }
+
         }
+
+       
     }
 }

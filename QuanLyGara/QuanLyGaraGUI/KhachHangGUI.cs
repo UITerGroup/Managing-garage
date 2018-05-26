@@ -13,19 +13,6 @@ namespace QuanLyGaraGUI
             InitializeComponent();
         }
 
-        public bool checkDigit(string s)
-        {
-     
-            for (int i = 0; i < s.Length; i++)
-            {
-                if (char.IsDigit(s[i]) == true)
-                    continue;
-                else
-                    return false;
-            }
-            return true;
-        }
-
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
 
@@ -34,7 +21,8 @@ namespace QuanLyGaraGUI
         private void KhachHangGUI_Load(object sender, EventArgs e)
         {
             cbbTimKiemKhachHang.SelectedIndex = 0; //Xóa bỏ Item trống đầu tiên trong cbb
-            //dtgvDanhSachKhachHang.DataSource = khBUS.xemToanBoKhachHang(); // Danh sách khách hàng
+            dtgvDanhSachKhachHang.DataSource = khBUS.xemToanBoKhachHang(); // Danh sách khách hàng
+            btnCapNhatKhachHang.Enabled = false;
         }
 
         private void btnXemDanhSachKhachHang_Click(object sender, EventArgs e)
@@ -42,14 +30,21 @@ namespace QuanLyGaraGUI
             dtgvDanhSachKhachHang.DataSource = khBUS.xemToanBoKhachHang();
         }
 
-        private void btnLamMoiKhachHang_Click(object sender, EventArgs e)
+        private void lamMoiNoiDungKhachHang()
         {
             txtMaKhachHang.Text = "";
             txtTenKhachHang.Text = "";
             txtDiaChi.Text = "";
             txtDienThoai.Text = "";
             txtEmail.Text = "";
-            this.Focus();
+            btnThemKhachHang.Enabled = true;
+            btnCapNhatKhachHang.Enabled = false;
+        }
+
+        private void btnLamMoiKhachHang_Click(object sender, EventArgs e)
+        {
+            lamMoiNoiDungKhachHang();
+            
         }
 
         private void btnThemKhachHang_Click(object sender, EventArgs e)
@@ -73,6 +68,7 @@ namespace QuanLyGaraGUI
                         {
                             MessageBox.Show("Thêm thành công");
                             dtgvDanhSachKhachHang.DataSource = khBUS.xemToanBoKhachHang(); // refresh datagridview
+                            lamMoiNoiDungKhachHang();
                         }
                         else
                         {
@@ -109,6 +105,7 @@ namespace QuanLyGaraGUI
                     {
                         MessageBox.Show("Cập nhật thành công");
                         dtgvDanhSachKhachHang.DataSource = khBUS.xemToanBoKhachHang(); // refresh datagridview
+                        lamMoiNoiDungKhachHang();
                     }
                     else
                     {
@@ -128,9 +125,16 @@ namespace QuanLyGaraGUI
             {
                 if (cbbTimKiemKhachHang.SelectedItem.Equals("Mã khách hàng"))
                 {
-                    if (checkDigit(txtTimKiemKhachHang.Text))
+                    CheckDigit ck = new CheckDigit();
+                    if (ck.checkDigit(txtTimKiemKhachHang.Text))
                     {
                         dtgvDanhSachKhachHang.DataSource = khBUS.timKiemKhachHangBangID(txtTimKiemKhachHang.Text);
+                        if (dtgvDanhSachKhachHang.Rows.Count <= 0)
+                        {
+                            dtgvDanhSachKhachHang.DataSource = null;
+                            MessageBox.Show("Không tìm được nội dung phù hợp");
+
+                        }
                     }
                     else
                     {
@@ -165,8 +169,12 @@ namespace QuanLyGaraGUI
                 txtDiaChi.Text = dtgvDanhSachKhachHang.Rows[e.RowIndex].Cells[2].Value.ToString();
                 txtDienThoai.Text = dtgvDanhSachKhachHang.Rows[e.RowIndex].Cells[3].Value.ToString();
                 txtEmail.Text = dtgvDanhSachKhachHang.Rows[e.RowIndex].Cells[4].Value.ToString();
+
+                btnThemKhachHang.Enabled = false;
+                btnCapNhatKhachHang.Enabled = true;
             }
         }
 
+  
     }
 }

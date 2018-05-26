@@ -79,6 +79,12 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChiTietPhieuSuaChuaGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChiTietPhieuSuaChuaGUI.Designer.cs">
+      <DependentUpon>ChiTietPhieuSuaChuaGUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="PhieuSuaChuaGUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +104,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="ThongTinLienHeGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThongTinLienHeGUI.Designer.cs">
+      <DependentUpon>ThongTinLienHeGUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="XeGUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +125,9 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ChiTietPhieuSuaChuaGUI.resx">
+      <DependentUpon>ChiTietPhieuSuaChuaGUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PhieuSuaChuaGUI.resx">
       <DependentUpon>PhieuSuaChuaGUI.cs</DependentUpon>
     </EmbeddedResource>
@@ -123,6 +138,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThongTinLienHeGUI.resx">
+      <DependentUpon>ThongTinLienHeGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="XeGUI.resx">
       <DependentUpon>XeGUI.cs</DependentUpon>

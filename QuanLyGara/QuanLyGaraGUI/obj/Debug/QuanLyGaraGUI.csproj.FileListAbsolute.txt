@@ -18,3 +18,5 @@ E:\study\Code\C#\QuanLyGara\QuanLyGaraGUI\bin\Debug\QuanLyGaraDAO.dll
 E:\study\Code\C#\QuanLyGara\QuanLyGaraGUI\bin\Debug\QuanLyGaraBUS.pdb
 E:\study\Code\C#\QuanLyGara\QuanLyGaraGUI\bin\Debug\QuanLyGaraDTO.pdb
 E:\study\Code\C#\QuanLyGara\QuanLyGaraGUI\bin\Debug\QuanLyGaraDAO.pdb
+E:\study\Code\C#\QuanLyGara\QuanLyGaraGUI\obj\Debug\QuanLyGaraGUI.ChiTietPhieuSuaChuaGUI.resources
+E:\study\Code\C#\QuanLyGara\QuanLyGaraGUI\obj\Debug\QuanLyGaraGUI.ThongTinLienHeGUI.resources

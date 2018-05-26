@@ -34,6 +34,8 @@
             this.btnTimKiemCongViec = new System.Windows.Forms.Button();
             this.txtTimKiemCongViec = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.nudTienCong = new System.Windows.Forms.NumericUpDown();
+            this.ckCapNhatMaCongViec = new System.Windows.Forms.CheckBox();
             this.txtMaCongViecCapNhat = new System.Windows.Forms.TextBox();
             this.lbMaCongViecCapNhat = new System.Windows.Forms.Label();
             this.lbTienCong = new System.Windows.Forms.Label();
@@ -48,15 +50,13 @@
             this.btnThemCongViec = new System.Windows.Forms.Button();
             this.btnXoaCongViec = new System.Windows.Forms.Button();
             this.btnLamMoiCongViec = new System.Windows.Forms.Button();
-            this.ckCapNhatMaCongViec = new System.Windows.Forms.CheckBox();
-            this.nudTienCong = new System.Windows.Forms.NumericUpDown();
             this.btnXemDanhSachCongViec = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudTienCong)).BeginInit();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvDanhSachCongViec)).BeginInit();
             this.groupBox6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudTienCong)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -120,6 +120,30 @@
             this.groupBox2.TabIndex = 17;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thông tin công việc";
+            // 
+            // nudTienCong
+            // 
+            this.nudTienCong.Location = new System.Drawing.Point(131, 140);
+            this.nudTienCong.Maximum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            0});
+            this.nudTienCong.Name = "nudTienCong";
+            this.nudTienCong.Size = new System.Drawing.Size(120, 20);
+            this.nudTienCong.TabIndex = 19;
+            this.nudTienCong.Validating += new System.ComponentModel.CancelEventHandler(this.nudTienCong_Validating);
+            // 
+            // ckCapNhatMaCongViec
+            // 
+            this.ckCapNhatMaCongViec.AutoSize = true;
+            this.ckCapNhatMaCongViec.Location = new System.Drawing.Point(238, 61);
+            this.ckCapNhatMaCongViec.Name = "ckCapNhatMaCongViec";
+            this.ckCapNhatMaCongViec.Size = new System.Drawing.Size(136, 17);
+            this.ckCapNhatMaCongViec.TabIndex = 18;
+            this.ckCapNhatMaCongViec.Text = "Cập nhật mã công việc";
+            this.ckCapNhatMaCongViec.UseVisualStyleBackColor = true;
+            this.ckCapNhatMaCongViec.CheckedChanged += new System.EventHandler(this.ckCapNhatMaCongViec_CheckedChanged);
             // 
             // txtMaCongViecCapNhat
             // 
@@ -198,7 +222,7 @@
             this.dtgvDanhSachCongViec.AllowUserToAddRows = false;
             this.dtgvDanhSachCongViec.AllowUserToResizeColumns = false;
             this.dtgvDanhSachCongViec.AllowUserToResizeRows = false;
-            this.dtgvDanhSachCongViec.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgvDanhSachCongViec.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dtgvDanhSachCongViec.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvDanhSachCongViec.Location = new System.Drawing.Point(6, 19);
             this.dtgvDanhSachCongViec.Name = "dtgvDanhSachCongViec";
@@ -276,30 +300,6 @@
             this.btnLamMoiCongViec.UseVisualStyleBackColor = true;
             this.btnLamMoiCongViec.Click += new System.EventHandler(this.btnLamMoiCongViec_Click);
             // 
-            // ckCapNhatMaCongViec
-            // 
-            this.ckCapNhatMaCongViec.AutoSize = true;
-            this.ckCapNhatMaCongViec.Location = new System.Drawing.Point(238, 61);
-            this.ckCapNhatMaCongViec.Name = "ckCapNhatMaCongViec";
-            this.ckCapNhatMaCongViec.Size = new System.Drawing.Size(136, 17);
-            this.ckCapNhatMaCongViec.TabIndex = 18;
-            this.ckCapNhatMaCongViec.Text = "Cập nhật mã công việc";
-            this.ckCapNhatMaCongViec.UseVisualStyleBackColor = true;
-            this.ckCapNhatMaCongViec.CheckedChanged += new System.EventHandler(this.ckCapNhatMaCongViec_CheckedChanged);
-            // 
-            // nudTienCong
-            // 
-            this.nudTienCong.Location = new System.Drawing.Point(131, 140);
-            this.nudTienCong.Maximum = new decimal(new int[] {
-            100000000,
-            0,
-            0,
-            0});
-            this.nudTienCong.Name = "nudTienCong";
-            this.nudTienCong.Size = new System.Drawing.Size(120, 20);
-            this.nudTienCong.TabIndex = 19;
-            this.nudTienCong.Validating += new System.ComponentModel.CancelEventHandler(this.nudTienCong_Validating);
-            // 
             // btnXemDanhSachCongViec
             // 
             this.btnXemDanhSachCongViec.AutoSize = true;
@@ -332,11 +332,11 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudTienCong)).EndInit();
             this.groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvDanhSachCongViec)).EndInit();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudTienCong)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

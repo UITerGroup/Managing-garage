@@ -52,7 +52,7 @@
             this.btnThemPhuTung = new System.Windows.Forms.Button();
             this.btnXoaPhuTung = new System.Windows.Forms.Button();
             this.btnLamMoiPhuTung = new System.Windows.Forms.Button();
-            this.btnXemDanhSachKhachHang = new System.Windows.Forms.Button();
+            this.btnXemDanhSachPhuTung = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvDanhSachPhuTung)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -67,7 +67,7 @@
             this.dtgvDanhSachPhuTung.AllowUserToAddRows = false;
             this.dtgvDanhSachPhuTung.AllowUserToResizeColumns = false;
             this.dtgvDanhSachPhuTung.AllowUserToResizeRows = false;
-            this.dtgvDanhSachPhuTung.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgvDanhSachPhuTung.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dtgvDanhSachPhuTung.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvDanhSachPhuTung.Location = new System.Drawing.Point(6, 19);
             this.dtgvDanhSachPhuTung.Name = "dtgvDanhSachPhuTung";
@@ -323,26 +323,26 @@
             this.btnLamMoiPhuTung.UseVisualStyleBackColor = true;
             this.btnLamMoiPhuTung.Click += new System.EventHandler(this.btnLamMoiPhuTung_Click);
             // 
-            // btnXemDanhSachKhachHang
+            // btnXemDanhSachPhuTung
             // 
-            this.btnXemDanhSachKhachHang.AutoSize = true;
-            this.btnXemDanhSachKhachHang.Image = ((System.Drawing.Image)(resources.GetObject("btnXemDanhSachKhachHang.Image")));
-            this.btnXemDanhSachKhachHang.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnXemDanhSachKhachHang.Location = new System.Drawing.Point(111, 311);
-            this.btnXemDanhSachKhachHang.Name = "btnXemDanhSachKhachHang";
-            this.btnXemDanhSachKhachHang.Size = new System.Drawing.Size(173, 30);
-            this.btnXemDanhSachKhachHang.TabIndex = 24;
-            this.btnXemDanhSachKhachHang.Text = "Xem danh sách phụ tùng";
-            this.btnXemDanhSachKhachHang.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnXemDanhSachKhachHang.UseVisualStyleBackColor = true;
-            this.btnXemDanhSachKhachHang.Click += new System.EventHandler(this.btnXemDanhSachKhachHang_Click);
+            this.btnXemDanhSachPhuTung.AutoSize = true;
+            this.btnXemDanhSachPhuTung.Image = ((System.Drawing.Image)(resources.GetObject("btnXemDanhSachPhuTung.Image")));
+            this.btnXemDanhSachPhuTung.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnXemDanhSachPhuTung.Location = new System.Drawing.Point(111, 311);
+            this.btnXemDanhSachPhuTung.Name = "btnXemDanhSachPhuTung";
+            this.btnXemDanhSachPhuTung.Size = new System.Drawing.Size(173, 30);
+            this.btnXemDanhSachPhuTung.TabIndex = 24;
+            this.btnXemDanhSachPhuTung.Text = "Xem danh sách phụ tùng";
+            this.btnXemDanhSachPhuTung.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnXemDanhSachPhuTung.UseVisualStyleBackColor = true;
+            this.btnXemDanhSachPhuTung.Click += new System.EventHandler(this.btnXemDanhSachPhuTung_Click);
             // 
             // PhuTungGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(873, 346);
-            this.Controls.Add(this.btnXemDanhSachKhachHang);
+            this.Controls.Add(this.btnXemDanhSachPhuTung);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox1);
@@ -389,7 +389,7 @@
         private System.Windows.Forms.TextBox txtMaPhuTungCapNhat;
         private System.Windows.Forms.Label lbMaPhuTungCapNhat;
         private System.Windows.Forms.CheckBox ckCapNhatMaPhuTung;
-        private System.Windows.Forms.Button btnXemDanhSachKhachHang;
+        private System.Windows.Forms.Button btnXemDanhSachPhuTung;
         private System.Windows.Forms.NumericUpDown nudDonGia;
         private System.Windows.Forms.NumericUpDown nudSoLuongTonKho;
     }
