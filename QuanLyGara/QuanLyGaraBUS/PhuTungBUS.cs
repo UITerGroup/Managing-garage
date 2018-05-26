@@ -47,5 +47,20 @@ namespace QuanLyGaraBUS
         {
             return ptDAO.timKiemPhuTungBangTen(keyword);
         }
+
+        public DataTable layDanhSachTenPhuTung()
+        {
+            return ptDAO.layDanhSachTenPhuTung();
+        }
+
+        public string layMaPhuTung(string TenPhuTung, int DonGia)
+        {
+            return ptDAO.layMaPhuTung(TenPhuTung, DonGia);
+        }
+
+        public int layDonGia(string MaPhuTung)
+        {
+            return ptDAO.layDonGia(MaPhuTung);             
+        }
     }
 }

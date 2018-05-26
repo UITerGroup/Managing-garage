@@ -37,5 +37,15 @@ namespace QuanLyGaraBUS
         {
             return khDAO.timKiemKhachHangBangTen(keyword);
         }
+
+        public DataTable layMaVaTenKH()
+        {
+            return khDAO.layMaVaTenKH();
+        }
+
+        public DataTable layThongTinKhBangBienSo(string BienSo)
+        {
+            return khDAO.layThongTinKhBangBienSo(BienSo);
+        }
     }
 }
