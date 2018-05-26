@@ -158,5 +158,36 @@ namespace QuanLyGaraDAO
             return dtPhuTungTimDuoc;
         }
 
+        public DataTable layDanhSachNoiDungCongViec()
+        {
+            string SQL = "select concat(MACONGVIEC,' - ',NOIDUNG) as 'NOIDUNGCV' from CONGVIEC";
+            SqlDataAdapter da = new SqlDataAdapter(SQL, _conn);
+            DataTable dtDanhSachNoiDungCongViec = new DataTable();
+            da.Fill(dtDanhSachNoiDungCongViec);
+            return dtDanhSachNoiDungCongViec;
+        }
+
+        public string layMaCongViec(string NoiDungCongViec, int TienCong)
+        {
+            string SQL = "select MACONGVIEC from CONGVIEC ";
+            SQL += "where NOIDUNG = N'" + NoiDungCongViec + "'";
+            SQL += " and TIENCONG =" + TienCong;
+            SqlDataAdapter da = new SqlDataAdapter(SQL, _conn);
+            DataTable dtMaCongViec = new DataTable();
+            da.Fill(dtMaCongViec);
+            string MaCongViec = dtMaCongViec.Rows[0][0].ToString();
+            return MaCongViec; 
+        }
+
+        public int layTienCong(string MaCongViec)
+        {
+            string SQL = "select TIENCONG from CONGVIEC ";
+            SQL += "where MACONGVIEC = '" + MaCongViec + "'";
+            SqlDataAdapter da = new SqlDataAdapter(SQL, _conn);
+            DataTable dtTienCong = new DataTable();
+            da.Fill(dtTienCong);
+            int DonGia = Convert.ToInt32(dtTienCong.Rows[0][0].ToString());
+            return DonGia;
+        }
     }
 }

@@ -82,7 +82,7 @@ namespace QuanLyGaraDAO
         {
             string SQL = "select MAKH as 'Mã khách hàng', TENKH as 'Tên khách hàng', DIACHI as 'Địa chỉ', ";
             SQL += "DIENTHOAI as 'Số điện thoại',EMAIL as 'Email' from KHACHHANG";
-            SQL += " where MAKH = " + Convert.ToInt16(keyword);
+            SQL += " where MAKH = " + Convert.ToInt64(keyword);
             SqlDataAdapter da = new SqlDataAdapter(SQL, _conn);
             DataTable dtKhachHangTimDuoc = new DataTable();
             da.Fill(dtKhachHangTimDuoc);
@@ -100,6 +100,25 @@ namespace QuanLyGaraDAO
             return dtKhachHangTimDuoc;
         }
 
+        public DataTable layMaVaTenKH()
+        {
+            string SQL = "select CONCAT(MAKH,' - ',TENKH) AS 'Khách hàng' FROM KHACHHANG ";
+            SqlDataAdapter da = new SqlDataAdapter(SQL, _conn);
+            DataTable dtMaVaTenKH = new DataTable();
+            da.Fill(dtMaVaTenKH);
+            return dtMaVaTenKH;
+        }
+
+        public DataTable layThongTinKhBangBienSo(string BienSo)
+        {
+            string SQL = "select x.HIEUXE, kh.TENKH, kh.DIACHI, kh.DIENTHOAI ";
+            SQL += "FROM XE x, KHACHHANG kh ";
+            SQL += "WHERE x.MAKH = kh.MAKH AND x.BIENSO = '" + BienSo + "'";
+            SqlDataAdapter da = new SqlDataAdapter(SQL, _conn);
+            DataTable dtKhachHang = new DataTable();
+            da.Fill(dtKhachHang);
+            return dtKhachHang;
+        }
 
     }
 }

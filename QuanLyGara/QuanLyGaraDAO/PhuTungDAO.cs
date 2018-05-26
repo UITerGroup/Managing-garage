@@ -158,5 +158,36 @@ namespace QuanLyGaraDAO
             return dtPhuTungTimDuoc;
         }
 
+        public DataTable layDanhSachTenPhuTung()
+        {
+            string SQL = "select concat(MAPHUTUNG,' - ',TENPHUTUNG) as 'TENPHUTUNG' from PHUTUNG";
+            SqlDataAdapter da = new SqlDataAdapter(SQL, _conn);
+            DataTable dtDanhSachTenPhuTung = new DataTable();
+            da.Fill(dtDanhSachTenPhuTung);
+            return dtDanhSachTenPhuTung;
+        }
+
+        public string layMaPhuTung(string TenPhuTung, int DonGia)
+        {
+            string SQL = "select MAPHUTUNG from PHUTUNG ";
+            SQL += "where TENPHUTUNG = N'" + TenPhuTung + "'";
+            SQL += " and DONGIA =" + DonGia;
+            SqlDataAdapter da = new SqlDataAdapter(SQL, _conn);
+            DataTable dtMaPhuTung = new DataTable();
+            da.Fill(dtMaPhuTung);
+            string MaPhuTung = dtMaPhuTung.Rows[0][0].ToString();
+            return MaPhuTung;
+        }
+
+        public int layDonGia(string MaPhuTung)
+        {
+            string SQL = "select DONGIA from PHUTUNG ";
+            SQL += "where MAPHUTUNG = '" + MaPhuTung + "'";
+            SqlDataAdapter da = new SqlDataAdapter(SQL, _conn);
+            DataTable dtDonGia = new DataTable();
+            da.Fill(dtDonGia);
+            int DonGia = Convert.ToInt32(dtDonGia.Rows[0][0].ToString());
+            return DonGia;
+        }
     }
 }
