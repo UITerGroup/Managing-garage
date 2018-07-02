@@ -5,3 +5,10 @@ E:\study\Code\C#\QuanLyGara\QuanLyGaraDAO\bin\Debug\QuanLyGaraDTO.dll
 E:\study\Code\C#\QuanLyGara\QuanLyGaraDAO\bin\Debug\QuanLyGaraDTO.pdb
 E:\study\Code\C#\QuanLyGara\QuanLyGaraDAO\obj\Debug\QuanLyGaraDAO.dll
 E:\study\Code\C#\QuanLyGara\QuanLyGaraDAO\obj\Debug\QuanLyGaraDAO.pdb
+C:\Users\Vu-PC\Desktop\NMCNPM\QuanLyGara\QuanLyGaraDAO\bin\Debug\QuanLyGaraDAO.dll
+C:\Users\Vu-PC\Desktop\NMCNPM\QuanLyGara\QuanLyGaraDAO\bin\Debug\QuanLyGaraDAO.pdb
+C:\Users\Vu-PC\Desktop\NMCNPM\QuanLyGara\QuanLyGaraDAO\bin\Debug\QuanLyGaraDTO.dll
+C:\Users\Vu-PC\Desktop\NMCNPM\QuanLyGara\QuanLyGaraDAO\bin\Debug\QuanLyGaraDTO.pdb
+C:\Users\Vu-PC\Desktop\NMCNPM\QuanLyGara\QuanLyGaraDAO\obj\Debug\QuanLyGaraDAO.csprojResolveAssemblyReference.cache
+C:\Users\Vu-PC\Desktop\NMCNPM\QuanLyGara\QuanLyGaraDAO\obj\Debug\QuanLyGaraDAO.dll
+C:\Users\Vu-PC\Desktop\NMCNPM\QuanLyGara\QuanLyGaraDAO\obj\Debug\QuanLyGaraDAO.pdb

@@ -136,6 +136,78 @@ namespace QuanLyGaraDAO
             return false;
         }
 
+        public bool giamSoLuongPhuTung(int SoLuongGiam, string MaPhuTung)
+        {
+            try
+            {
+                // Ket noi
+                _conn.Open();
+
+                // Query string
+                string SQL = "update PHUTUNG set SLTON = SLTON - " + SoLuongGiam;
+                SQL += " where MAPHUTUNG = '" + MaPhuTung + "'";
+
+                // Command (mặc định command type = text nên).
+                SqlCommand cmd = new SqlCommand(SQL, _conn);
+
+                // Query và kiểm tra
+                if (cmd.ExecuteNonQuery() > 0)
+                    return true;
+            }
+            catch (Exception e)
+            {
+            }
+            finally
+            {
+                // Dong ket noi
+                _conn.Close();
+            }
+            return false;
+        }
+
+        public bool tangSoLuongPhuTung(int SoLuongTang, string MaPhuTung)
+        {
+            try
+            {
+                // Ket noi
+                _conn.Open();
+
+                // Query string
+                string SQL = "update PHUTUNG set SLTON = SLTON + " + SoLuongTang;
+                SQL += " where MAPHUTUNG = '" + MaPhuTung + "'";
+
+                // Command (mặc định command type = text nên).
+                SqlCommand cmd = new SqlCommand(SQL, _conn);
+
+                // Query và kiểm tra
+                if (cmd.ExecuteNonQuery() > 0)
+                    return true;
+            }
+            catch (Exception e)
+            {
+            }
+            finally
+            {
+                // Dong ket noi
+                _conn.Close();
+            }
+            return false;
+        }
+
+        public bool kiemTraTonKho(string MaPhuTung, int SoLuong)
+        {
+            string SQL = "select SLTON from PHUTUNG ";
+            SQL += "where MAPHUTUNG = '" + MaPhuTung + "'";
+            SqlDataAdapter da = new SqlDataAdapter(SQL, _conn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            int SoLuongTon = Convert.ToInt32(dt.Rows[0][0].ToString());
+            if (SoLuongTon < SoLuong)
+                return false;
+            else
+                return true;
+        }
+
         public DataTable timKiemPhuTungBangID(string keyword)
         {
             string SQL = "select MAPHUTUNG as 'Mã phụ tùng', TENPHUTUNG as 'Tên phụ tùng', ";

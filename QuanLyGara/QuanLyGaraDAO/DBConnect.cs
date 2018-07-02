@@ -10,6 +10,6 @@ namespace QuanLyGaraDAO
 {
     public class DBConnect
     {
-        protected SqlConnection _conn = new SqlConnection(@"Data Source =.\SQLEXPRESS; Initial Catalog = QuanLyGara; Integrated Security = True");
+        protected SqlConnection _conn = new SqlConnection(@"Data Source=DESKTOP-38ANKB5;Initial Catalog=QuanLyGara;Integrated Security=True");
     }     
 }

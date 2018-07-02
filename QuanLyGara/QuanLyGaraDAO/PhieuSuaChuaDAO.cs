@@ -116,6 +116,17 @@ namespace QuanLyGaraDAO
             return dtPhieuSuaTimDuoc;
         }
 
+        public void setTinhTrangPhieu(int MaPhieuSua)
+        {
+            _conn.Open();
 
+            string SQL = "update PHIEUSUACHUA set TINHTRANG = N'Đã thanh toán' ";
+            SQL += "where MAPHIEUSUA = " + MaPhieuSua;
+
+            SqlCommand cmd = new SqlCommand(SQL, _conn);
+            cmd.ExecuteNonQuery();
+
+            _conn.Close();
+        }
     }
 }

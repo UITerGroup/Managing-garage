@@ -16,7 +16,7 @@ namespace QuanLyGaraDAO
             string SQL = "select pn.MAPHIEUNHAN as 'Mã phiếu', ";
             SQL += "pn.BIENSO as 'Biển số', x.HIEUXE as 'Hiệu xe', ";
             SQL += "kh.TENKH as 'Tên khách hàng', kh.DIACHI as 'Địa chỉ', kh.DIENTHOAI as 'Điện thoại',";
-            SQL += "convert(nvarchar(10), pn.NGAYNHAN, 103) as 'Ngày nhận' ";
+            SQL += "pn.NGAYNHAN as 'Ngày nhận' ";
             SQL += "from XE x, KHACHHANG kh, PHIEUNHAN pn ";
             SQL += "where pn.BIENSO = x.BIENSO AND x.MAKH = kh.MAKH";
             SqlDataAdapter da = new SqlDataAdapter(SQL, _conn);
@@ -88,7 +88,7 @@ namespace QuanLyGaraDAO
             string SQL = "select pn.MAPHIEUNHAN as 'Mã phiếu', ";
             SQL += "pn.BIENSO as 'Biển số', x.HIEUXE as 'Hiệu xe', ";
             SQL += "kh.TENKH as 'Tên khách hàng', kh.DIACHI as 'Địa chỉ', kh.DIENTHOAI as 'Điện thoại',";
-            SQL += "convert(nvarchar(10), pn.NGAYNHAN, 103) as 'Ngày nhận' ";
+            SQL += "pn.NGAYNHAN as 'Ngày nhận'  ";
             SQL += "from XE x, KHACHHANG kh, PHIEUNHAN pn ";
             SQL += "where pn.BIENSO = x.BIENSO AND x.MAKH = kh.MAKH ";
             SQL += "and pn.MAPHIEUNHAN = " + Convert.ToInt32(keyword);
@@ -103,7 +103,7 @@ namespace QuanLyGaraDAO
             string SQL = "select pn.MAPHIEUNHAN as 'Mã phiếu', ";
             SQL += "pn.BIENSO as 'Biển số', x.HIEUXE as 'Hiệu xe', ";
             SQL += "kh.TENKH as 'Tên khách hàng', kh.DIACHI as 'Địa chỉ', kh.DIENTHOAI as 'Điện thoại',";
-            SQL += "convert(nvarchar(10), pn.NGAYNHAN, 103) as 'Ngày nhận' ";
+            SQL += "pn.NGAYNHAN as 'Ngày nhận' ";
             SQL += "from XE x, KHACHHANG kh, PHIEUNHAN pn ";
             SQL += "where pn.BIENSO = x.BIENSO AND x.MAKH = kh.MAKH ";
             SQL += "and pn.BIENSO like N'%" + keyword + "%'";
@@ -118,7 +118,7 @@ namespace QuanLyGaraDAO
             string SQL = "select pn.MAPHIEUNHAN as 'Mã phiếu', ";
             SQL += "pn.BIENSO as 'Biển số', x.HIEUXE as 'Hiệu xe', ";
             SQL += "kh.TENKH as 'Tên khách hàng', kh.DIACHI as 'Địa chỉ', kh.DIENTHOAI as 'Điện thoại',";
-            SQL += "convert(nvarchar(10), pn.NGAYNHAN, 103) as 'Ngày nhận' ";
+            SQL += "pn.NGAYNHAN as 'Ngày nhận' ";
             SQL += "from XE x, KHACHHANG kh, PHIEUNHAN pn ";
             SQL += "where pn.BIENSO = x.BIENSO AND x.MAKH = kh.MAKH ";
             SQL += "and x.HIEUXE like N'%" + keyword + "%'";
@@ -133,7 +133,7 @@ namespace QuanLyGaraDAO
             string SQL = "select pn.MAPHIEUNHAN as 'Mã phiếu', ";
             SQL += "pn.BIENSO as 'Biển số', x.HIEUXE as 'Hiệu xe', ";
             SQL += "kh.TENKH as 'Tên khách hàng', kh.DIACHI as 'Địa chỉ', kh.DIENTHOAI as 'Điện thoại',";
-            SQL += "convert(nvarchar(10), pn.NGAYNHAN, 103) as 'Ngày nhận' ";
+            SQL += "pn.NGAYNHAN as 'Ngày nhận' ";
             SQL += "from XE x, KHACHHANG kh, PHIEUNHAN pn ";
             SQL += "where pn.BIENSO = x.BIENSO AND x.MAKH = kh.MAKH ";
             SQL += "and kh.TENKH like N'%" + keyword + "%'";
@@ -148,7 +148,7 @@ namespace QuanLyGaraDAO
             string SQL = "select pn.MAPHIEUNHAN as 'Mã phiếu', ";
             SQL += "pn.BIENSO as 'Biển số', x.HIEUXE as 'Hiệu xe', ";
             SQL += "kh.TENKH as 'Tên khách hàng', kh.DIACHI as 'Địa chỉ', kh.DIENTHOAI as 'Điện thoại',";
-            SQL += "convert(nvarchar(10), pn.NGAYNHAN, 103) as 'Ngày nhận' ";
+            SQL += "pn.NGAYNHAN as 'Ngày nhận' ";
             SQL += "from XE x, KHACHHANG kh, PHIEUNHAN pn ";
             SQL += "where pn.BIENSO = x.BIENSO AND x.MAKH = kh.MAKH ";
             SQL += "and pn.NGAYNHAN between '" + NgayBatDau + "' and '" + NgayKetThuc + "'";
