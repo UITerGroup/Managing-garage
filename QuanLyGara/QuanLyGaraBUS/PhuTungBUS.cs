@@ -38,6 +38,21 @@ namespace QuanLyGaraBUS
             return ptDAO.capNhatMaPhuTung(MaPhuTungCapNhat, MaPhuTung);
         }
 
+        public bool giamSoLuongPhuTung(int SoLuongGiam, string MaPhuTung)
+        {
+            return ptDAO.giamSoLuongPhuTung (SoLuongGiam, MaPhuTung);
+        }
+
+        public bool tangSoLuongPhuTung(int SoLuongTang, string MaPhuTung)
+        {
+            return ptDAO.tangSoLuongPhuTung(SoLuongTang, MaPhuTung);
+        }
+
+        public bool kiemTraTonKho(string MaPhuTung, int SoLuong)
+        {
+            return ptDAO.kiemTraTonKho(MaPhuTung, SoLuong);
+        }
+
         public DataTable timKiemPhuTungBangID(string keyword)
         {
             return ptDAO.timKiemPhuTungBangID(keyword);

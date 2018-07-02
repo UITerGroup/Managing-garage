@@ -42,5 +42,10 @@ namespace QuanLyGaraBUS
         {
             return phieusuaDAO.timKiemPhieuSuaTheoNgay(NgayBatDau, NgayKetThuc);
         }
+
+        public void setTinhTrangPhieu(int MaPhieuSua)
+        {
+            phieusuaDAO.setTinhTrangPhieu(MaPhieuSua);
+        }
     }
 }

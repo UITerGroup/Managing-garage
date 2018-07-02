@@ -7,3 +7,12 @@ E:\study\Code\C#\QuanLyGara\QuanLyGaraBUS\bin\Debug\QuanLyGaraDTO.pdb
 E:\study\Code\C#\QuanLyGara\QuanLyGaraBUS\obj\Debug\QuanLyGaraBUS.csprojResolveAssemblyReference.cache
 E:\study\Code\C#\QuanLyGara\QuanLyGaraBUS\obj\Debug\QuanLyGaraBUS.dll
 E:\study\Code\C#\QuanLyGara\QuanLyGaraBUS\obj\Debug\QuanLyGaraBUS.pdb
+C:\Users\Vu-PC\Desktop\NMCNPM\QuanLyGara\QuanLyGaraBUS\bin\Debug\QuanLyGaraBUS.dll
+C:\Users\Vu-PC\Desktop\NMCNPM\QuanLyGara\QuanLyGaraBUS\bin\Debug\QuanLyGaraBUS.pdb
+C:\Users\Vu-PC\Desktop\NMCNPM\QuanLyGara\QuanLyGaraBUS\bin\Debug\QuanLyGaraDAO.dll
+C:\Users\Vu-PC\Desktop\NMCNPM\QuanLyGara\QuanLyGaraBUS\bin\Debug\QuanLyGaraDTO.dll
+C:\Users\Vu-PC\Desktop\NMCNPM\QuanLyGara\QuanLyGaraBUS\bin\Debug\QuanLyGaraDAO.pdb
+C:\Users\Vu-PC\Desktop\NMCNPM\QuanLyGara\QuanLyGaraBUS\bin\Debug\QuanLyGaraDTO.pdb
+C:\Users\Vu-PC\Desktop\NMCNPM\QuanLyGara\QuanLyGaraBUS\obj\Debug\QuanLyGaraBUS.csprojResolveAssemblyReference.cache
+C:\Users\Vu-PC\Desktop\NMCNPM\QuanLyGara\QuanLyGaraBUS\obj\Debug\QuanLyGaraBUS.dll
+C:\Users\Vu-PC\Desktop\NMCNPM\QuanLyGara\QuanLyGaraBUS\obj\Debug\QuanLyGaraBUS.pdb
