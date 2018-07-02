@@ -284,6 +284,9 @@ namespace QuanLyGaraGUI
 
         }
 
-       
+        private void nudDonGia_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

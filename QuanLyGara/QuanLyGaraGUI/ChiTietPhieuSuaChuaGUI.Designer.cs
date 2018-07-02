@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChiTietPhieuSuaChuaGUI));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.nudSoLuongPhuTung = new System.Windows.Forms.NumericUpDown();
             this.lbThanhTien = new System.Windows.Forms.Label();
             this.txtThanhTien = new System.Windows.Forms.TextBox();
             this.cbbTenPhuTung = new System.Windows.Forms.ComboBox();
@@ -61,12 +62,11 @@
             this.btnLamMoiChiTiet = new System.Windows.Forms.Button();
             this.btnXoaChiTiet = new System.Windows.Forms.Button();
             this.btnThemChiTiet = new System.Windows.Forms.Button();
-            this.nudSoLuongPhuTung = new System.Windows.Forms.NumericUpDown();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudSoLuongPhuTung)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvChiTietPhieuSua)).BeginInit();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudSoLuongPhuTung)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -93,6 +93,13 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chi tiết phiếu sửa";
+            // 
+            // nudSoLuongPhuTung
+            // 
+            this.nudSoLuongPhuTung.Location = new System.Drawing.Point(111, 184);
+            this.nudSoLuongPhuTung.Name = "nudSoLuongPhuTung";
+            this.nudSoLuongPhuTung.Size = new System.Drawing.Size(100, 20);
+            this.nudSoLuongPhuTung.TabIndex = 16;
             // 
             // lbThanhTien
             // 
@@ -358,6 +365,7 @@
             this.btnLapPhieuThuTien.Text = "Lập phiếu thu tiền";
             this.btnLapPhieuThuTien.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLapPhieuThuTien.UseVisualStyleBackColor = true;
+            this.btnLapPhieuThuTien.Click += new System.EventHandler(this.btnLapPhieuThuTien_Click);
             // 
             // groupBox3
             // 
@@ -412,13 +420,6 @@
             this.btnThemChiTiet.UseVisualStyleBackColor = true;
             this.btnThemChiTiet.Click += new System.EventHandler(this.btnThemChiTiet_Click);
             // 
-            // nudSoLuongPhuTung
-            // 
-            this.nudSoLuongPhuTung.Location = new System.Drawing.Point(111, 184);
-            this.nudSoLuongPhuTung.Name = "nudSoLuongPhuTung";
-            this.nudSoLuongPhuTung.Size = new System.Drawing.Size(100, 20);
-            this.nudSoLuongPhuTung.TabIndex = 16;
-            // 
             // ChiTietPhieuSuaChuaGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -434,12 +435,12 @@
             this.Load += new System.EventHandler(this.ChiTietPhieuSuaChuaGUI_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudSoLuongPhuTung)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvChiTietPhieuSua)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudSoLuongPhuTung)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

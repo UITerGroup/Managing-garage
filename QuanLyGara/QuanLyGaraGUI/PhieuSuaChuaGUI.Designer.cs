@@ -93,7 +93,8 @@
             // 
             // dtpkDenNgay
             // 
-            this.dtpkDenNgay.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpkDenNgay.CustomFormat = "dd/MM/yyyy";
+            this.dtpkDenNgay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpkDenNgay.Location = new System.Drawing.Point(450, 46);
             this.dtpkDenNgay.Name = "dtpkDenNgay";
             this.dtpkDenNgay.Size = new System.Drawing.Size(102, 20);
@@ -136,7 +137,8 @@
             // 
             // dtpkTuNgay
             // 
-            this.dtpkTuNgay.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpkTuNgay.CustomFormat = "dd/MM/yyyy";
+            this.dtpkTuNgay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpkTuNgay.Location = new System.Drawing.Point(238, 46);
             this.dtpkTuNgay.Name = "dtpkTuNgay";
             this.dtpkTuNgay.Size = new System.Drawing.Size(104, 20);
@@ -183,10 +185,10 @@
             // dtpkNgaySuaChua
             // 
             this.dtpkNgaySuaChua.CalendarForeColor = System.Drawing.Color.Black;
-            this.dtpkNgaySuaChua.CustomFormat = "dd/MM/yyyy HH:mm";
+            this.dtpkNgaySuaChua.CustomFormat = "dd/MM/yyyy";
             this.dtpkNgaySuaChua.Enabled = false;
-            this.dtpkNgaySuaChua.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpkNgaySuaChua.Location = new System.Drawing.Point(66, 74);
+            this.dtpkNgaySuaChua.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpkNgaySuaChua.Location = new System.Drawing.Point(66, 77);
             this.dtpkNgaySuaChua.Name = "dtpkNgaySuaChua";
             this.dtpkNgaySuaChua.Size = new System.Drawing.Size(95, 20);
             this.dtpkNgaySuaChua.TabIndex = 25;
@@ -219,7 +221,7 @@
             // 
             // txtTinhTrang
             // 
-            this.txtTinhTrang.Location = new System.Drawing.Point(66, 100);
+            this.txtTinhTrang.Location = new System.Drawing.Point(66, 103);
             this.txtTinhTrang.Name = "txtTinhTrang";
             this.txtTinhTrang.ReadOnly = true;
             this.txtTinhTrang.Size = new System.Drawing.Size(95, 20);
@@ -228,7 +230,7 @@
             // lbTinhTrang
             // 
             this.lbTinhTrang.AutoSize = true;
-            this.lbTinhTrang.Location = new System.Drawing.Point(6, 103);
+            this.lbTinhTrang.Location = new System.Drawing.Point(6, 106);
             this.lbTinhTrang.Name = "lbTinhTrang";
             this.lbTinhTrang.Size = new System.Drawing.Size(58, 13);
             this.lbTinhTrang.TabIndex = 18;
@@ -236,7 +238,7 @@
             // 
             // txtBienSo
             // 
-            this.txtBienSo.Location = new System.Drawing.Point(66, 48);
+            this.txtBienSo.Location = new System.Drawing.Point(66, 51);
             this.txtBienSo.Name = "txtBienSo";
             this.txtBienSo.Size = new System.Drawing.Size(95, 20);
             this.txtBienSo.TabIndex = 3;
@@ -244,7 +246,7 @@
             // lbBienSo
             // 
             this.lbBienSo.AutoSize = true;
-            this.lbBienSo.Location = new System.Drawing.Point(6, 51);
+            this.lbBienSo.Location = new System.Drawing.Point(6, 54);
             this.lbBienSo.Name = "lbBienSo";
             this.lbBienSo.Size = new System.Drawing.Size(45, 13);
             this.lbBienSo.TabIndex = 16;

@@ -70,6 +70,14 @@ namespace QuanLyGaraGUI
             this.Show();
         }
 
+        private void btnBaoCao_Click(object sender, EventArgs e)
+        {
+            BaoCaoGUI f = new BaoCaoGUI();
+            this.Hide();
+            f.ShowDialog();
+            this.Show();
+        }
+
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (MessageBox.Show("Bạn có thật sự muốn thoát chương trình?", "Thông báo", MessageBoxButtons.OKCancel) != System.Windows.Forms.DialogResult.OK)
@@ -295,5 +303,7 @@ namespace QuanLyGaraGUI
             }
           
         }
+
+       
     }
 }

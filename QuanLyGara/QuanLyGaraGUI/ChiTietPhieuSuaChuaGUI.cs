@@ -27,6 +27,7 @@ namespace QuanLyGaraGUI
         {
             dtgvChiTietPhieuSua.DataSource = ctpsBUS.xemChiTietPhieuSua(Convert.ToInt32(txtMaPhieuSua.Text));
             btnXoaChiTiet.Enabled = false;
+           
         }
 
         private void lamMoiChiTietPhieuSua()
@@ -40,12 +41,27 @@ namespace QuanLyGaraGUI
             nudSoLuongPhuTung.Value = 0;
             txtThanhTien.Text = "";
 
-            btnThemChiTiet.Enabled = true;
-            btnXoaChiTiet.Enabled = false;
-            nudSoLuongPhuTung.Enabled = true;
+            if (txtTinhTrang.Text.Equals("Đã thanh toán"))
+            {
+                btnThemChiTiet.Enabled = false;
+                btnXoaChiTiet.Enabled = false;
 
-            cbbNoiDungCongViec.Enabled = true;
-            cbbTenPhuTung.Enabled = true;
+                nudSoLuongPhuTung.Enabled = false;
+
+                cbbNoiDungCongViec.Enabled = false;
+                cbbTenPhuTung.Enabled = false;
+            }
+
+            else
+            {
+                btnThemChiTiet.Enabled = true;
+                btnXoaChiTiet.Enabled = false;
+
+                nudSoLuongPhuTung.Enabled = true;
+
+                cbbNoiDungCongViec.Enabled = true;
+                cbbTenPhuTung.Enabled = true;
+            }
         }
 
         private void btnLamMoiChiTiet_Click(object sender, EventArgs e)
@@ -60,6 +76,14 @@ namespace QuanLyGaraGUI
             txtBienSo.Text = BienSo;
             txtNgaySua.Text = NgaySua;
             txtTinhTrang.Text = TinhTrang;
+            if (txtTinhTrang.Text.Equals("Đã thanh toán"))
+            {
+                btnThemChiTiet.Enabled = false;
+                cbbNoiDungCongViec.Enabled = false;
+                cbbTenPhuTung.Enabled = false;
+                nudSoLuongPhuTung.Enabled = false;
+            }      
+
         }
   
         private void btnThemChiTiet_Click(object sender, EventArgs e)
@@ -80,15 +104,26 @@ namespace QuanLyGaraGUI
                     DialogResult dialogResult = MessageBox.Show("Bạn có muốn thêm nội dung này không ?", "Thông báo", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
                     {
-                        if (ctpsBUS.themChiTiet(ctps))
+                        string MaPhuTung = txtMaPhuTung.Text;
+                        int SoLuong = Convert.ToInt32(nudSoLuongPhuTung.Value);
+                        if (ptBUS.kiemTraTonKho(MaPhuTung, SoLuong))
                         {
-                            MessageBox.Show("Thêm thành công");
-                            dtgvChiTietPhieuSua.DataSource = ctpsBUS.xemChiTietPhieuSua(MaPhieuSua); // refresh datagridview
-                            lamMoiChiTietPhieuSua();
+                            if (ctpsBUS.themChiTiet(ctps))
+                            {
+                                ptBUS.giamSoLuongPhuTung(SoLuong, MaPhuTung);
+                                MessageBox.Show("Thêm thành công");
+                                dtgvChiTietPhieuSua.DataSource = ctpsBUS.xemChiTietPhieuSua(MaPhieuSua); // refresh datagridview
+                                lamMoiChiTietPhieuSua();
+
+                            }
+                            else
+                            {
+                                MessageBox.Show("Thêm thất bại vì đã có nội dung tương tự !");
+                            }
                         }
                         else
                         {
-                            MessageBox.Show("Thêm thất bại vì đã có phụ tùng này trong hệ thống !");
+                            MessageBox.Show("Phụ tùng trong kho không đủ !");
                         }
                     }
                 }
@@ -110,6 +145,7 @@ namespace QuanLyGaraGUI
                 {
                     if (ctpsBUS.xoaChiTiet(Convert.ToInt32(txtMaPhieuSua.Text), txtMaCongViec.Text, txtMaPhuTung.Text))
                     {
+                        ptBUS.tangSoLuongPhuTung(Convert.ToInt32(nudSoLuongPhuTung.Value), txtMaPhuTung.Text);
                         MessageBox.Show("Xóa thành công");
                         dtgvChiTietPhieuSua.DataSource = ctpsBUS.xemChiTietPhieuSua(Convert.ToInt32(txtMaPhieuSua.Text));
                         lamMoiChiTietPhieuSua();
@@ -218,11 +254,25 @@ namespace QuanLyGaraGUI
                 nudSoLuongPhuTung.Value = Convert.ToInt32(dtgvChiTietPhieuSua.Rows[e.RowIndex].Cells[4].Value.ToString());
                 txtThanhTien.Text = dtgvChiTietPhieuSua.Rows[e.RowIndex].Cells[5].Value.ToString();
 
-                btnThemChiTiet.Enabled = false;
-                btnXoaChiTiet.Enabled = true;
-                cbbNoiDungCongViec.Enabled = false;
-                cbbTenPhuTung.Enabled = false;
-                nudSoLuongPhuTung.Enabled = false;
+                if (txtTinhTrang.Text.Equals("Đã thanh toán"))
+                {
+                    btnThemChiTiet.Enabled = false;
+                    btnXoaChiTiet.Enabled = false;
+                    cbbNoiDungCongViec.Enabled = false;
+                    cbbTenPhuTung.Enabled = false;
+                    nudSoLuongPhuTung.Enabled = false;
+                }
+
+                else
+                {
+                    btnThemChiTiet.Enabled = false;
+                    btnXoaChiTiet.Enabled = true;
+                    cbbNoiDungCongViec.Enabled = false;
+                    cbbTenPhuTung.Enabled = false;
+                    nudSoLuongPhuTung.Enabled = false;
+                }
+                    
+
             }
         }
 
@@ -233,6 +283,33 @@ namespace QuanLyGaraGUI
             //this.Hide();
             f.Show();
             this.Show();
+        }
+
+        private void btnLapPhieuThuTien_Click(object sender, EventArgs e)
+        {
+            if (dtgvChiTietPhieuSua.RowCount > 0)
+            {
+                PhieuThuTienGUI f = new PhieuThuTienGUI();
+                this.Hide();
+                string TongTienThu = tinhTongTienThu(dtgvChiTietPhieuSua).ToString();
+                f.loadThongTinPhieuThu(txtTinhTrang.Text, txtMaPhieuSua.Text, txtBienSo.Text, TongTienThu);
+                f.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Chưa có nội dung để thu tiền!");
+            }
+            
+        }
+
+        private int tinhTongTienThu(DataGridView dtgv)
+        {
+            int TongTienThu = 0;
+            for (int i = 0; i < dtgv.RowCount; i++)
+            {
+                TongTienThu += Convert.ToInt32(dtgv.Rows[i].Cells[5].Value);
+            }
+            return TongTienThu;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

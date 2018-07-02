@@ -215,6 +215,7 @@
             this.nudDonGia.Name = "nudDonGia";
             this.nudDonGia.Size = new System.Drawing.Size(120, 20);
             this.nudDonGia.TabIndex = 21;
+            this.nudDonGia.ValueChanged += new System.EventHandler(this.nudDonGia_ValueChanged);
             this.nudDonGia.Validating += new System.ComponentModel.CancelEventHandler(this.nudDonGia_Validating);
             // 
             // txtMaPhuTungCapNhat

@@ -100,7 +100,7 @@ namespace QuanLyGaraGUI
                     }
                     else
                     {
-                        MessageBox.Show("Xóa không thành công!");
+                        MessageBox.Show("Không thể xóa phiếu đã thanh toán!");
                     }
                 }
             }
@@ -204,6 +204,7 @@ namespace QuanLyGaraGUI
             this.Hide();
             f.ShowDialog();
             this.Show();
+            dtgvDanhSachPhieuSuaChua.DataSource = phieusuaBUS.xemToanPhieuSuaChua();
         }
 
     }

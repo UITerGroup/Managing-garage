@@ -104,6 +104,7 @@
             this.btnBaoCao.Text = "Báo cáo";
             this.btnBaoCao.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnBaoCao.UseVisualStyleBackColor = false;
+            this.btnBaoCao.Click += new System.EventHandler(this.btnBaoCao_Click);
             // 
             // btnPhieuSuaChua
             // 
@@ -232,7 +233,8 @@
             // 
             // dtpkDenNgay
             // 
-            this.dtpkDenNgay.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpkDenNgay.CustomFormat = "dd/MM/yyyy";
+            this.dtpkDenNgay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpkDenNgay.Location = new System.Drawing.Point(590, 46);
             this.dtpkDenNgay.Name = "dtpkDenNgay";
             this.dtpkDenNgay.Size = new System.Drawing.Size(102, 20);
@@ -277,7 +279,8 @@
             // 
             // dtpkTuNgay
             // 
-            this.dtpkTuNgay.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpkTuNgay.CustomFormat = "dd/MM/yyyy";
+            this.dtpkTuNgay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpkTuNgay.Location = new System.Drawing.Point(352, 46);
             this.dtpkTuNgay.Name = "dtpkTuNgay";
             this.dtpkTuNgay.Size = new System.Drawing.Size(104, 20);
@@ -331,9 +334,9 @@
             // dtpkNgayTiepNhan
             // 
             this.dtpkNgayTiepNhan.CalendarForeColor = System.Drawing.Color.Black;
-            this.dtpkNgayTiepNhan.CustomFormat = "dd/MM/yyyy HH:mm";
+            this.dtpkNgayTiepNhan.CustomFormat = "dd/MM/yyyy";
             this.dtpkNgayTiepNhan.Enabled = false;
-            this.dtpkNgayTiepNhan.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpkNgayTiepNhan.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpkNgayTiepNhan.Location = new System.Drawing.Point(97, 205);
             this.dtpkNgayTiepNhan.Name = "dtpkNgayTiepNhan";
             this.dtpkNgayTiepNhan.Size = new System.Drawing.Size(95, 20);
@@ -483,6 +486,7 @@
             this.dtgvDanhSachPhieuNhan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvDanhSachPhieuNhan.Location = new System.Drawing.Point(6, 19);
             this.dtgvDanhSachPhieuNhan.Name = "dtgvDanhSachPhieuNhan";
+            this.dtgvDanhSachPhieuNhan.ReadOnly = true;
             this.dtgvDanhSachPhieuNhan.RowHeadersVisible = false;
             this.dtgvDanhSachPhieuNhan.Size = new System.Drawing.Size(613, 315);
             this.dtgvDanhSachPhieuNhan.TabIndex = 0;
