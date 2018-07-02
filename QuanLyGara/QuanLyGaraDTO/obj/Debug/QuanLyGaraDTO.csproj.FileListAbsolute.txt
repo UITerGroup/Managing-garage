@@ -3,3 +3,8 @@ E:\study\Code\C#\QuanLyGara\QuanLyGaraDTO\bin\Debug\QuanLyGaraDTO.pdb
 E:\study\Code\C#\QuanLyGara\QuanLyGaraDTO\obj\Debug\QuanLyGaraDTO.csprojResolveAssemblyReference.cache
 E:\study\Code\C#\QuanLyGara\QuanLyGaraDTO\obj\Debug\QuanLyGaraDTO.dll
 E:\study\Code\C#\QuanLyGara\QuanLyGaraDTO\obj\Debug\QuanLyGaraDTO.pdb
+C:\Users\Vu-PC\Desktop\NMCNPM\QuanLyGara\QuanLyGaraDTO\bin\Debug\QuanLyGaraDTO.dll
+C:\Users\Vu-PC\Desktop\NMCNPM\QuanLyGara\QuanLyGaraDTO\bin\Debug\QuanLyGaraDTO.pdb
+C:\Users\Vu-PC\Desktop\NMCNPM\QuanLyGara\QuanLyGaraDTO\obj\Debug\QuanLyGaraDTO.csprojResolveAssemblyReference.cache
+C:\Users\Vu-PC\Desktop\NMCNPM\QuanLyGara\QuanLyGaraDTO\obj\Debug\QuanLyGaraDTO.dll
+C:\Users\Vu-PC\Desktop\NMCNPM\QuanLyGara\QuanLyGaraDTO\obj\Debug\QuanLyGaraDTO.pdb
